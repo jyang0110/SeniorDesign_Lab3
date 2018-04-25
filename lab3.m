@@ -3,6 +3,8 @@ clear all;
 
 I_channel='distorted_I.wav';
 Q_channel='distorted_Q.wav';
+wavchunksizefix(I_channel);
+wavchunksizefix(Q_channel);
 
 [II,Fs]=audioread(I_channel); %Load the I channel distorted signal into the matlab
 [QQ,Fs]=audioread(Q_channel); %Load the Q channel distorted signal into the matlab
