@@ -29,7 +29,8 @@ while ((n+1)*N_buf <= N)
 end;
 
 average_error = error_sum/(n-1);
-display(sprintf('Average frequency is: %0.1f Hz', average_error))
+str1 = sprintf('Average frequency is: %0.1f Hz', average_error));
+display(str1);
 undistorted = real(undistorted)/max(abs(real(undistorted)));
 
 audiowrite('undistorted.wav',undistorted,Fs);
