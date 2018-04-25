@@ -24,7 +24,7 @@ undistorted = nan(1,N);
 % now sit in a loop and process blocks of samples until we run out
 while ((n+1)*N_buf <= N)
     nrange=(n*N_buf+1:(n+1)*N_buf);
-    freq_est=frequency_estimate(signal(nrange),Ts);
+    freq_est=estimate(signal(nrange),Ts);
     error_sum=error_sum+freq_est;
     str2=sprintf('Estimated frequency is: %0.1f Hz', freq_est);
     display(str2);
