@@ -1,3 +1,4 @@
+close all;
 clear all;
 
 Iwavfilename='distorted_I.wav';
