@@ -23,19 +23,16 @@ undistorted = zeros(1,N);
 
 % now sit in a loop and process blocks of samples until we run out
 while ((n+1)*N_buf <= N)
-    nrange=(n*N_buf+1:(n+1)*N_buf);
-    freq_estimate=freq_estimator(signal(nrange),Ts);
+    freq_estimate=freq_estimator(signal((n*N_buf+1:(n+1)*N_buf)),Ts);
     p=p+freq_estimate;
-    
-    frequencyerror=exp(-1j*2*pi*freq_estimate*(nrange)*Ts);
-    undistorted(nrange) = signal(nrange).*frequencyerror;
-    
+    frequencyerror=exp(-j*2*pi*freq_estimate*((n*N_buf+1:(n+1)*N_buf))*Ts);
+    undistorted((n*N_buf+1:(n+1)*N_buf)) = signal((n*N_buf+1:(n+1)*N_buf)).*frequencyerror;
     n=n+1;
 end;
 
-average_error = p/(n-1);
+aveg_freq = p/(n-1);
 
-str1=sprintf('Actual frequency is: %0.1f Hz', average_error);
+str1=sprintf('Actual frequency is: %0.1f Hz', aveg_freq);
 display(str1)
 
 undistorted = real(undistorted)/max(abs(real(undistorted)));
