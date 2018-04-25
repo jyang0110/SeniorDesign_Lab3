@@ -1,6 +1,6 @@
-function freq_estimator = estimate(sample,Ts)
-sigphase=angle((sample).^2);
-tsamp_n=Ts:Ts:Ts*length(sample);
+function freq_estimator = estimate(audio,Ts)
+sigphase=angle((audio).^2);
+tsamp_n=Ts:Ts:Ts*length(audio);
 
 uwphase=unwrap(sigphase);
 
