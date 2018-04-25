@@ -12,6 +12,7 @@ signal=II'+1j*QQ';
 T_buf = 0.5;  % number of seconds worth of samples
 N_buf = floor(T_buf/Ts);
 
+% now sit in a loop and process blocks of samples until we run out
 n=0;
 error_sum=0;
 undistorted = nan(1,length(signal));
