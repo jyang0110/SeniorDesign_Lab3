@@ -1,16 +1,16 @@
 close all;
 clear all;
 
-I_file='distorted_I.wav';
-Q_file='distorted_Q.wav';
+I_channel='distorted_I.wav';
+Q_channel='distorted_Q.wav';
 
-[Isamples,Fs]=audioread(I_file); %Load the I channel distorted signal into the matlab
-[Qsamples,Fs]=audioread(Q_file); %Load the Q channel distorted signal into the matlab
+[Isamples,Fs]=audioread(I_channel); %Load the I channel distorted signal into the matlab
+[Qsamples,Fs]=audioread(Q_channel); %Load the Q channel distorted signal into the matlab
 Ts=1/Fs;    % sampling interval
 signal=Isamples'+1j*Qsamples';
 
-T_buf=1;  % number of seconds worth of samples
-N_buf=floor(T_buf/Ts);
+T_buf = 0.5;  % number of seconds worth of samples
+N_buf = floor(T_buf/Ts);
 
 n=0;
 error_sum=0;
