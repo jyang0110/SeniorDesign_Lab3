@@ -1,11 +1,11 @@
 close all;
 clear all;
 
-Iwavfilename='distorted_I.wav';
-Qwavfilename='distorted_Q.wav';
+I_file='distorted_I.wav';
+Q_file='distorted_Q.wav';
 
-[Isamples,Fs]=audioread(Iwavfilename);
-[Qsamples,Fs]=audioread(Qwavfilename);
+[Isamples,Fs]=audioread(I_file);
+[Qsamples,Fs]=audioread(Q_file);
 Ts=1/Fs;    % sampling interval
 signal=Isamples'+1j*Qsamples';
 
