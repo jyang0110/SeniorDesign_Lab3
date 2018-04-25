@@ -10,11 +10,12 @@ wavchunksizefix(Q_channel);
 [QQ,Fs]=audioread(Q_channel); %Load the Q channel distorted signal into the matlab
 
 Ts=1/Fs;
+
 signal=II'+1j*QQ';
 N = length(signal)
+
 T_buf = 0.5;  % number of seconds worth of samples
 N_buf = floor(T_buf/Ts);
-
 
 n=0;
 error_sum=0;
