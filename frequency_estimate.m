@@ -1,4 +1,4 @@
-function freq_est = frequency_estimate(sample,Ts)
+function freq_estimator = estimate(sample,Ts)
 sigphase=angle((sample).^2);
 tsamp_n=Ts:Ts:Ts*length(sample);
 
