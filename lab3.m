@@ -5,12 +5,12 @@ I_channel='distorted_I.wav';
 Q_channel='distorted_Q.wav';
 wavchunksizefix(I_channel);
 wavchunksizefix(Q_channel);
-[II,Fs]=audioread(I_channel); %Read I channel signal, Fs = sampling rate in samples per second for I channel singal
-[QQ,Fs]=audioread(Q_channel); %Read Q channel signal, Fs = sampling rate in samples per second for Q channel singal
+[II,Fs]=audioread(I_channel); %Read I channel signal, Fs = sampling rate in I channel singal per second
+[QQ,Fs]=audioread(Q_channel); %Read Q channel signal, Fs = sampling rate in Q channel singal per second
 
 Ts=1/Fs; % sampling interval
 
-signal=II'+j*QQ'; % s = i + jq
+signal=II'+j*QQ'; % s = i + jq, combine I and Q cannel
 N = length(signal) % length of the signal
 singal = sigwin.hann(N,'periodic'); % Using hanning window to reduce leakage and frequency interference
 
