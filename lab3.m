@@ -1,5 +1,5 @@
-close all;
-clear all;
+close all; %deletes all figures
+clear all; %removes all variables from the current workspace
 
 I_channel='distorted_I.wav';
 Q_channel='distorted_Q.wav';
