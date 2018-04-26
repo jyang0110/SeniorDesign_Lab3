@@ -19,7 +19,7 @@ N_buf = floor(T_buf/Ts);
 
 n=0;
 p=0;
-undistorted = zeros(1,N); %create a 1-by-N matrix
+undistorted = zeros(1,N); %create a 1-by-N matrix of all zeros
 ffreq_estimate = 0;
 
 % now sit in a loop and process blocks of samples until we run out
