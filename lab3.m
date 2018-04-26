@@ -37,6 +37,7 @@ undistorted_signal = real(undistorted_signal); %returns the real part of singal
 audiowrite('undistorted_output.wav',undistorted_signal,Fs); %Write a WAVE file in the current folder
 
 function freq_estimate = freq_estimator(audio,Ts) %A function to estimate the frequency
+
 sigphase=angle((audio).^2); %Return phase angle of the squared audio signal
 tsamp_n = Ts:Ts:(Ts*length(audio));
 uwphase=unwrap(sigphase); %Unwrap the phase angle because if phase crosses 360 degrees and reset to zero which will make it impossible to see the linear variation over time
