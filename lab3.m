@@ -44,16 +44,16 @@ display(str1)
 undistorted = real(undistorted)/max(abs(real(undistorted)));
 audiowrite('undistorted.wav',undistorted,Fs);
 function freq_estimate = freq_estimator(audio,Ts)
-sigphase=angle((audio).^2); % phase of the squared signal
+sigphase=angle((audio).^2); % return phase angle of the squared audio signal
 tsamp_n=Ts:Ts:Ts*length(audio); % time values for the sample
 
-uwphase=unwrap(sigphase); % unwrap the phase so the slope can be calculated
+uwphase=unwrap(sigphase); % unwrap phase angle
 
 p=polyfit(tsamp_n,uwphase,1); % fit a polynomial of degree 1 i.e. a line
 
-freq_estimate=p(1)/(2*pi*2); % the frequency error is one half the slope of the phase
+freq_estimate=p(1)/(2*pi*2); % the frequency error is one half the slope of the phase angle
 
-str2=sprintf('The %d Estimated frequency is: %0.1f Hz',n,freq_estimate);
+str2=sprintf('The %d Estimated frequency is: %0.1f Hz',n,freq_estimate); %The estimated frequency for each time period
 
 display(str2);
 end
