@@ -53,7 +53,7 @@ p=polyfit(tsamp_n,uwphase,1); % fit a polynomial of degree 1 i.e. a line
 
 freq_estimate=p(1)/(2*pi*2); % the frequency error is one half the slope of the phase
 
-str2=sprintf('Estimated frequency is: %0.1f Hz', freq_estimate);
+str2=sprintf('The %d Estimated frequency is: %0.1f Hz',n,freq_estimate);
 
 display(str2);
 end
