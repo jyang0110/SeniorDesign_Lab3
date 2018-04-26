@@ -25,7 +25,7 @@ ffreq_estimate = 0;
 % now sit in a loop and process blocks of samples until we run out
 while ((n+1)*N_buf <= N)
     freq_estimate=freq_estimator(signal((n*N_buf+1:(n+1)*N_buf)),Ts);
-    p=p+freq_estimate;
+    p=p+freq_estimate; 
     frequencyerror=exp(-j*2*pi*freq_estimate*((n*N_buf+1:(n+1)*N_buf))*Ts);
     undistorted((n*N_buf+1:(n+1)*N_buf)) = signal((n*N_buf+1:(n+1)*N_buf)).*frequencyerror;
     ffreq_estimate = ffreq_estimate + freq_estimate;
