@@ -20,6 +20,7 @@ N_buf = floor(T_buf/Ts);
 n=0;
 p=0;
 undistorted = zeros(1,N);
+ffreq_estimate = 0;
 
 % now sit in a loop and process blocks of samples until we run out
 while ((n+1)*N_buf <= N)
@@ -27,8 +28,13 @@ while ((n+1)*N_buf <= N)
     p=p+freq_estimate;
     frequencyerror=exp(-j*2*pi*freq_estimate*((n*N_buf+1:(n+1)*N_buf))*Ts);
     undistorted((n*N_buf+1:(n+1)*N_buf)) = signal((n*N_buf+1:(n+1)*N_buf)).*frequencyerror;
+    ffreq_estimate = ffreq_estimate + freq_estimate;
     n=n+1;
 end;
+
+freq_avg_estimate = ffreq_estimate/(n-1);
+str3=sprintf('Average estimated frequency is: %0.1f Hz', freq_avg_estimate);
+display(str3);
 
 aveg_freq = p/(n-1);
 
@@ -37,7 +43,6 @@ display(str1)
 
 undistorted = real(undistorted)/max(abs(real(undistorted)));
 audiowrite('undistorted.wav',undistorted,Fs);
-
 function freq_estimate = freq_estimator(audio,Ts)
 sigphase=angle((audio).^2); % phase of the squared signal
 tsamp_n=Ts:Ts:Ts*length(audio); % time values for the sample
