@@ -10,7 +10,7 @@ wavchunksizefix(Q_channel);
 
 Ts=1/Fs; % sampling interval
 
-signal=II'+j*QQ'; % s = i + jq, combine I and Q cannel
+signal=II'+j*QQ'; % s = i + jq, to combine real and imaginary part
 N = length(signal) % length of the signal
 singal = sigwin.hann(N,'periodic'); % Using hanning window to reduce leakage and frequency interference
 
