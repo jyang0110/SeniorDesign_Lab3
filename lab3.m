@@ -12,7 +12,7 @@ Ts=1/Fs; % sampling interval
 
 signal=II'+j*QQ'; % s = i + jq
 N = length(signal) % length of the signal
-singal = sigwin.hann(N,'periodic'); % Using hanning window
+singal = sigwin.hann(N,'periodic'); % Using hanning window to reduce leakage and frequency interference
 
 T_buf = 0.5;  % number of seconds worth of samples
 N_buf = floor(T_buf/Ts);
