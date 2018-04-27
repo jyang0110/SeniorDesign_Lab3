@@ -43,7 +43,7 @@ tsamp_n = Ts:Ts:(Ts*length(audio));
 uwphase=unwrap(sigphase); %Unwrap the phase angle because if phase crosses 360 degrees and reset to zero which will make it impossible to see the linear variation over time
 p=polyfit(tsamp_n,uwphase,1); %Fit a polynomial of degree 1
 freq_estimate=p(1)/(2*pi*2);
-str2=sprintf('The Estimated frequency is: %0.1f Hz',freq_estimate); %The estimated frequency for each time period
+str2=sprintf('The Estimated frequency is: %0.1f Hz',freq_estimate); %The estimated frequency for each signal block
 display(str2);
 
 end
